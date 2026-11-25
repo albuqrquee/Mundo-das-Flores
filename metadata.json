@@ -1,0 +1,6 @@
+{
+  "name": "Floricultura Mundo da Flores",
+  "description": "Buquês artesanais, arranjos florais, plantas e cestas em Juiz de Fora. Atendimento direto pelo WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

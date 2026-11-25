@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta disciplinada em HSL: Verde Folha (#16A34A) + Branco Gelo (#F8FAFC) */
+  --bg-ice: 210 40% 98%;
+  --bg-surface: 0 0% 100%;
+  --bg-surface-muted: 210 38% 95%;
+  --bg-leaf-tint: 142 45% 95%;
+  --bg-forest: 145 58% 16%;
+
+  --ink-primary: 215 28% 14%;
+  --ink-secondary: 215 18% 36%;
+  --ink-muted: 215 14% 46%;
+  --ink-on-dark: 210 40% 98%;
+
+  /* Verde Folha exato (#16A34A = hsl(142, 76%, 36%)) + variação acessível p/ texto pequeno */
+  --leaf-primary: 142 76% 36%;
+  --leaf-deep: 144 69% 25%;
+  --leaf-soft: 142 55% 90%;
+
+  --border-hairline: 214 28% 89%;
+  --border-leaf: 142 42% 80%;
+
+  --state-error: 0 72% 45%;
+  --state-error-bg: 0 85% 96%;
+}
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Lato", system-ui, -apple-system, sans-serif;
+
+  --color-ice: hsl(var(--bg-ice));
+  --color-surface: hsl(var(--bg-surface));
+  --color-surface-muted: hsl(var(--bg-surface-muted));
+  --color-leaf-tint: hsl(var(--bg-leaf-tint));
+  --color-forest: hsl(var(--bg-forest));
+
+  --color-ink: hsl(var(--ink-primary));
+  --color-ink-secondary: hsl(var(--ink-secondary));
+  --color-ink-muted: hsl(var(--ink-muted));
+  --color-ink-on-dark: hsl(var(--ink-on-dark));
+
+  --color-leaf: hsl(var(--leaf-primary));
+  --color-leaf-deep: hsl(var(--leaf-deep));
+  --color-leaf-soft: hsl(var(--leaf-soft));
+
+  --color-hairline: hsl(var(--border-hairline));
+  --color-hairline-leaf: hsl(var(--border-leaf));
+
+  --color-danger: hsl(var(--state-error));
+  --color-danger-bg: hsl(var(--state-error-bg));
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: hsl(var(--bg-ice));
+    color: hsl(var(--ink-primary));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: hsl(var(--bg-ice));
+    color: hsl(var(--ink-primary));
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--leaf-primary));
+    outline-offset: 3px;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  html,
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: hsl(var(--bg-ice)) !important;
+  }
+
+  header {
+    position: static !important;
+  }
+
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  article,
+  form,
+  figure,
+  footer,
+  section > div > div > button,
+  #sobre .grid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
